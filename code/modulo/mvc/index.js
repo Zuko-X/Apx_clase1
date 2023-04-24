@@ -1,7 +1,0 @@
-import 
-
-function main() {
-    
-};
-
-main();

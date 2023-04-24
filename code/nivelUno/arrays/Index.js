@@ -4,4 +4,4 @@ let insulina = {
     max_unidades: 60,
     disponible: true,
 };
-console.log(max_unidades);
+console.log(insulina);
