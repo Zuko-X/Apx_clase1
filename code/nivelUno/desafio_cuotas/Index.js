@@ -1,64 +1,128 @@
-    const compuUno = {
+const compuUno = {
   id: "1",
   title: "Notebook Asus",
-  marca: "asus",
+  marca: "samsung",
   estado: "nuevo",
   sellerId: 1,
   precio: 58999,
-  precioCuotas: 0,
   stock: 33,
   vendidos: 400,
   cuotas: 6,
   aceptaTarjeta: true,
   envioGratis: true,
-  puntos: 0,
-  };
-  
-  const compuDos = {
+};
+const compuDos = {
     id: "2",
     title: "Notebook Lenovo",
-    marca: "lenovo",
-    estado: "usado",
+    marca: "apple",
+    estado: "nuevo",
     sellerId: 2,
     precio: 99999,
-    precioCuotas: 0,
     stock: 450,
     vendidos: 500,
     aceptaTarjeta: true,
     cuotas: 12,
     envioGratis: false,
-    puntos: 0,
-  };
+};
 
-compuUno.precioCuotas = compuUno.precio / compuUno.cuotas
-compuDos.precioCuotas = compuDos.precio / compuDos.cuotas
+// Array objetos anidado
+//   const computadoras = [
+//     {
+//         id: "1",
+//         title: "Notebook Asus",
+//         marca: "asus",
+//         estado: "nuevo",
+//         sellerId: 1,
+//         precio: 58999,
+//         stock: 33,
+//         vendidos: 400,
+//         cuotas: 6,
+//         aceptaTarjeta: true,
+//         envioGratis: true,
+//     },
+//     {
+//         id: "2",
+//         title: "Notebook Lenovo",
+//         marca: "apple",
+//         estado: "usado",
+//         sellerId: 2,
+//         precio: 99999,
+//         stock: 450,
+//         vendidos: 500,
+//         aceptaTarjeta: true,
+//         cuotas: 12,
+//         envioGratis: false,
+//     }
+//   ]
+// const [xMin, xMax, yMin, yMax] = [-2, 2, -1.5, 1.5];
 
-let precioCuotas = compuUno.precioCuotas < compuDos.precioCuotas ? compuUno.puntos ++ : compuDos.puntos ++; //Compara el precio de las cuotas entre compuUno y compuDos, al menor le suma 1 punto
-let envioGratisUno = compuUno.envioGratis == true ? compuUno.puntos++ : compuUno.puntos; //Si la compuUno tiene envio gratis le suma 1 punto
-let envioGratisDos = compuDos.envioGratis == true ? compuDos.puntos++ : compuDos.puntos; //Si la compuDos tiene envio gratis le suma 1 punto
-let estadoUno = compuUno.estado == "nuevo" ? compuUno.puntos++: compuUno.puntos; //Si la compuUno es nueva le suma 1 punto
-let estadoDos = compuDos.estado == "nuevo" ? compuDos.puntos++: compuDos.puntos; //Si la compuDos es nueva le suma 1 punto 
-let ventas = compuUno.vendidos > compuDos.vendidos ? compuUno.puntos++ : compuDos.puntos++; //Compara las ventas, el mas vendido suma 1 punto
-//este if está todo mal 
-if (compuUno.marca == "lenovo" || "asus") {
-    compuUno.puntos++;
+let puntosCompuUno = 0;
+let puntosCompuDos = 0;
+
+const precioCuotasUno = compuUno.precio / compuUno.cuotas
+const precioCuotasDos = compuDos.precio / compuDos.cuotas
+// Precio Cuotas
+const precioCuotas = compuUno.precioCuotas < compuDos.precioCuotas ? puntosCompuUno ++ : puntosCompuDos ++; //Compara el precio de las cuotas entre compuUno y compuDos, al menor le suma 1 punto
+
+// Envio Gratis
+const envioGratisUno = compuUno.envioGratis == true ? puntosCompuUno++ : puntosCompuUno; //Si la compuUno tiene envio gratis le suma 1 punto
+const envioGratisDos = compuDos.envioGratis == true ? puntosCompuDos++ : puntosCompuDos; //Si la compuDos tiene envio gratis le suma 1 punto
+
+// Estado
+const estadoUno = compuUno.estado === "nuevo" ? puntosCompuUno = puntosCompuUno + 2: puntosCompuUno; //Si la compuUno es nueva le suma 1 punto
+const estadoDos = compuDos.estado === "nuevo" ? puntosCompuDos = puntosCompuDos + 2: puntosCompuDos; //Si la compuDos es nueva le suma 1 punto 
+
+// Ventas
+const ventas = compuUno.vendidos > compuDos.vendidos ? puntosCompuUno++ : puntosCompuDos++; //Compara las ventas, el mas vendido suma 1 punto
+
+// Marca
+switch(compuUno.marca){
+    case "asus":
+        puntosCompuUno ++;
+    break;
+    case "lenovo":
+        puntosCompuUno ++;
+    break;
+    case "dell":
+        puntosCompuUno += 2;
+    break;
+    case "samsung":
+        puntosCompuUno += 2; 
+    break;
+    case "apple":
+        puntosCompuUno += 3;
+    break;
+    default: puntosCompuUno;
 }
-else if (compuDos.marca == "lenovo" || "asus") {
-    compuDos.puntos++;
-}
-else if (compuUno.marca == "dell" || "samsung") {
-    compuUno.puntos+2;
-}
-else if (compuDos.marca == "dell" || "samsung") {
-    compuDos.puntos+2;
-}
-else if (compuDos.marca == "apple"){
-    compuDos.puntos+3;
-}
-else if (compuUno.marca == "apple"){
-    compuUno.puntos+3;
+switch(compuDos.marca){
+    case "asus":
+        puntosCompuDos ++;
+    break;
+    case "lenovo":
+        puntosCompuDos ++;
+    break;
+    case "dell":
+        puntosCompuDos += 2;
+    break;
+    case "samsung": 
+        puntosCompuDos += 2;
+    break;
+    case "apple":
+        puntosCompuDos += 3;
+    break;
+    default: puntosCompuDos;
 }
 
+console.log("La compu 1 tiene " + puntosCompuUno + " puntos.");
+console.log("La compu 2 tiene " + puntosCompuDos + " puntos.");
 
-console.log("Tiene " + compuUno.puntos + " puntos.");
-console.log("Tiene " + compuDos.puntos + " puntos.");
+if (puntosCompuUno > puntosCompuDos) {
+    console.log("La computadora 1 es la ganadora con " + puntosCompuUno + " puntos");
+}
+else if (puntosCompuUno < puntosCompuDos) {
+    console.log("La computadora 2 es la ganadora con " + puntosCompuDos + " puntos")
+}
+else {
+    console.log("Es un empate")
+}
+
