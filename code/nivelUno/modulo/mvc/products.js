@@ -20,3 +20,19 @@ const productos = [
         stock: 46,
     },
 ];
+
+export function getOne(id) {
+    const objetoEncontrado = productos.find(objeto => objeto.id === id);
+    objetoEncontrado ? console.log(objetoEncontrado) : console.log('El objeto con id ' + id + ' no fue encontrado');
+    return objetoEncontrado
+};
+
+function getAll() {
+    
+};
+
+function getAllWith(minStock) {
+    
+};
+
+getOne(5);
