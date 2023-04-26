@@ -21,18 +21,32 @@ const productos = [
     },
 ];
 
-export function getOne(id) {
+function getOne(id) {
+    // const objetoEncontrado = productos.find(objeto => objeto.id === id);
+    // objetoEncontrado ? objetoEncontrado === objetoEncontrado : 'El objeto con id ' + id + ' no fue encontrado'; //arreglar la segunda concidion de false o convertirlo en if
+    // return objetoEncontrado
     const objetoEncontrado = productos.find(objeto => objeto.id === id);
-    objetoEncontrado ? console.log(objetoEncontrado) : console.log('El objeto con id ' + id + ' no fue encontrado');
-    return objetoEncontrado
+    if (objetoEncontrado) {
+        return objetoEncontrado;
+    } 
+    else {
+        return "El objeto con id " + id + " no fue encontrado";
+    }
+    
 };
 
 function getAll() {
-    
+    const objetoEncontrado = productos;
+    return objetoEncontrado;
 };
 
 function getAllWith(minStock) {
-    
+    const objetoEncontrado = productos.find(objeto => objeto.stock >= minStock)
+    return objetoEncontrado
 };
 
-getOne(5);
+module.exports = {
+    getOne,
+    getAll,
+    getAllWith,
+};
