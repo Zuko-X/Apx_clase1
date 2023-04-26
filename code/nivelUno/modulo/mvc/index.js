@@ -1,13 +1,5 @@
 const { getOne, getAll, getAllWith } = require("./products")
 
-const objetosEncontrado = getOne();
-const todosLosObjetos = getAll();
-const objetosConStockMinimo = getAllWith();
-
-
-
-
-
 function main() {
     objeto = getOne(2);
     console.log(objeto);
