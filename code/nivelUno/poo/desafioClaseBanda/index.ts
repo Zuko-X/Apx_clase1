@@ -17,8 +17,13 @@ class Banda {
 	getAllMembers() {
 		return this.members;
 	}
-	getRandomSong(albumTitle) {
-		return "album 1 - tema 1";
+	getRandomSong(albumTitle: string) {
+		const album = this.albums.find((album) => album.title === albumTitle);
+
+		if (album && album.songs.length > 0) {
+			const random = Math.floor(Math.random() * album.songs.length);
+			return album.songs[random];
+		}
 	}
 }
 
@@ -45,7 +50,7 @@ function testClaseBanda() {
 		firstAlbum.title == fa.title &&
 		fa.songs.length == firstAlbum.songs.length &&
 		JSON.stringify(allMembers.sort()) == JSON.stringify(members.sort()) &&
-		fa.songs.includes(randomSongAlbum1)
+		fa.songs.includes(randomSongAlbum1 as string)
 	) {
 		console.log("testClaseBanda passed");
 	} else {
