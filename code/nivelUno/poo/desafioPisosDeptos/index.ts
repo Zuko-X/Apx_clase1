@@ -57,7 +57,7 @@ class Edificio {
 	}
 }
 
-// Pruebas
+// no modificar este test
 function testClaseEdificio() {
 	const unPiso = new Piso("planta baja");
 	const otroPiso = new Piso("primer piso");
