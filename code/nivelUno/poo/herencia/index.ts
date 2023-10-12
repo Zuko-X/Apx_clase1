@@ -1,4 +1,4 @@
-import * as rev from "lodash/reverse";
+import * as rev from "node_modules/lodash/reverse";
 
 class Product {
 	price: number;
